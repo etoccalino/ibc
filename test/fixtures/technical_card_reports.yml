@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  report_id: 1
+  survey: 2011-12-29
+  elaboration: 2011-12-29
+  survey_user1: MyString
+  survey_user1_crea: MyString
+  survey_user2: MyString
+  survey_user2_crea: MyString
+  elaboration_user1: MyString
+  elaboration_user1_crea: MyString
+  elaboration_user2: MyString
+  elaboration_user2_crea: MyString
+
+two:
+  report_id: 1
+  survey: 2011-12-29
+  elaboration: 2011-12-29
+  survey_user1: MyString
+  survey_user1_crea: MyString
+  survey_user2: MyString
+  survey_user2_crea: MyString
+  elaboration_user1: MyString
+  elaboration_user1_crea: MyString
+  elaboration_user2: MyString
+  elaboration_user2_crea: MyString

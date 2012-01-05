@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="sidebar">
+    <div class="header indent1">
+      <h1> 
+        Sidebar
+      </h1>
+    </div>
+    <div class="clearfix">
+      <div class="created">
+        <strong>Created on </strong><%= @report.created_at.strftime('%d of %B, %Y') %> by 
+        <em><%= @report.created_by.try(:username) || "No data" %></em>
+      </div> 
+      <div class="updated">
+        <strong>Updated on</strong> <%= @report.updated_at.strftime('%d of %B, %Y') %> by 
+        <em><%= @report.updated_by.try(:username) || "No data" %></em>
+      </div>
+      <div class="clearfix">
+        <%= link_to 'Edit', edit_report_path(@report), :class => 'btn info' %>
+        <%= link_to 'Delete', @report, :method => :delete, :confirm => "Are you sure?", :class => 'btn danger'  %> 
+        <%= link_to 'Back', reports_path, :class => 'btn' %>
+      </div>
+    </div>
+  </div>  
+  <div class="content">
+    <div class="header indent1">
+      <h1> 
+        Report : <%= @report.report_type.name %> 
+      </h1>
+    </div>
+    <section id="user"></section>
+    <section id="general">
+      <%= render :partial => 'reports/information/general_report', :locals => { :general => @report.general_report } %>
+    </section>
+    <section id="owner">
+      <%= render :partial => 'reports/information/owner_report', :locals => { :owner => @report.owner_report } %>
+    </section>
+    <section id="historical">
+      <%= render :partial => 'reports/information/historical_report', :locals => { :historical => @report.historical_report } %>
+    </section>
+    <section id="location">
+      <%= render :partial => 'reports/information/location_report', :locals => { :location => @report.location_report } %>
+    </section>
+    <section id="status">
+      <%= render :partial => 'reports/information/status_report', :locals => { :status => @report.status_report } %>
+    </section>
+    <section id="supplementary_data">
+      <%= render :partial => 'reports/information/supplementary_data_report', :locals => { :supplementary_data => @report.supplementary_data_report } %>
+    </section>
+    <section id="technical_card">
+      <%= render :partial => 'reports/information/technical_card_report', :locals => { :technical_card => @report.technical_card_report } %>
+    </section>
+  </div>
+</div>
+

@@ -1,0 +1,126 @@
+.actions {
+  &.lined {
+    padding-left: $baseline;
+  }
+}
+
+.input-xauto, input.xauto, textarea.xauto, select.xauto {
+  clear: both;
+  display: inline;
+  width: inherit;
+}
+
+.input-tiny, input.tiny, textarea.tiny, select.tiny {
+  width: 30px;
+}
+
+fieldset {
+ &.no-padding {
+   padding: 0px 0px 0px 0px;
+ }
+ .radioHeader {
+   label {
+     font-weight: bold;
+     font-size: 11pt;
+     cursor: pointer;
+   }
+ }
+ 
+ label {
+   font-weight: bold;
+   color: $grayDark;
+ }
+ input, textarea, .fixedData {
+   &.btn {
+     font-size: $basefont;
+   }
+   font-size: $largeInputFontSize;
+ }
+ input::-webkit-input-placeholder {
+  font-size: 14px;
+  margin-top: 3px;
+ }
+ select {
+   font-size: $largeSelectFontSize;
+ }
+ .formSubSection {
+   background: $grayLighter;
+   padding: $gridGutterWidth;
+   margin-bottom: $gridGutterWidth;
+ }
+ .header {
+   .icon {
+     padding-right: 4px;
+   }
+   margin: 10px 0;
+   background: #f1f1f1;
+ }
+ .help-icon {
+     padding: 0 4px;
+     cursor: pointer;
+   }
+ .prependedLabel {
+    float: left;
+    border-radius: 0 3px 3px 0;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 12pt;
+    color: $gray;
+  }
+  .active + 
+    .prependedLabel {
+      color: $black;
+    }
+}
+
+form {
+  &.line-height-fix {
+    line-height: $baseline;
+  }
+}
+
+@mixin formFieldStateError($textColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
+  label, .help-block, .help-inline {
+    &.error {
+      color: $textColor;
+    }
+  }
+  input, textarea {
+    &.error {
+      color: $textColor;
+      border-color: $borderColor;
+      &:focus {
+        border-color: darken($borderColor, 10%);
+        @include box-shadow(0 0 6px lighten($borderColor, 10%));
+      }
+    }
+  }
+  // Give a small background color for input-prepend/-append
+  .input-prepend .add-on, .input-append .add-on {
+    &.error {
+      color: $textColor;
+      background-color: $backgroundColor;
+      border-color: $borderColor;
+    }
+  }
+}
+
+// Error
+form {
+  @include formFieldStateError(#b94a48, #ee5f5b, lighten(#ee5f5b, 30%));
+}
+
+// Keeping this outside form-stacked, just in case...
+input, textarea, select, .fixedData {
+  color: $black;
+}
+
+.uneditable-input {
+  color: $grayDark;
+}
+
+.legalOptionBorder {
+   border-left: 1px solid $grayLight;
+   padding-left: $gridGutterWidth;
+}

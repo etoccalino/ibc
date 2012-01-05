@@ -1,0 +1,51 @@
+.container-fluid {
+  .content-left {
+    margin-left: $baseline;
+    margin-right: 240px;
+  }
+
+  .sidebar-right {
+    float: right;
+    width: 240px;
+    height: 100%;
+    background: #F5F5F5;
+    &.fixed {
+      position: fixed;
+      right: 0px;
+      top: 30px;
+    }
+  }
+}
+
+#sideBarNavigation {
+  padding: 0px;
+  width: 240px;
+  h5 { padding-left: $gridGutterWidth; }
+  ul {
+    list-style: none;
+    margin: 0px;
+    li {
+      &.active a {
+        background: #fff;
+        color: black;
+        font-weight: bold;
+      }
+      a {
+        padding: 5px 5px 5px $gridGutterWidth;
+        display: block;
+        border-bottom: 1px solid transparent;
+        color: $grayDark;
+        text-decoration: none;
+        font-size: 14px;
+        &:hover {
+          color: #46A546;
+          text-decoration: none;          
+        }
+      }
+    }
+  }
+  .sideBarActions {
+    float: left;
+    padding: 0px $gridGutterWidth;
+  }
+}

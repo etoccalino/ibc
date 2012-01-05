@@ -1,0 +1,21 @@
+<div class="header indent3">
+  <h2>Historical Information</h2>
+</div>
+<div>
+  <%= f.fields_for :historical_report do |hr| %>
+    <div class="clearfix">
+      <%= hr.label :history %> 
+      <div class="input">
+        <%= hr.text_area :history, :rows => 15, :cols => 40, :class => 'xxlarge' %>
+        <span class="help-block"> Probando </span>
+      </div>
+    </div>
+    <div class="clearfix">
+      <%= hr.label :source %> 
+      <div class="input fixedData">
+        <%= hr.text_area :source, :rows => 3, :cols => 40, :class => 'xxlarge' %>
+        <span class="help-block"> Probando </span>
+      </div>
+    </div>  
+  <% end %>
+</div>  

@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="sidebar">
+    <h2> Search </h2>
+    <%= form_tag reports_path, :method => :get do %>
+      <%= search_field_tag 'q',nil, :placeholder => 'search', :class => 'span3'%>
+      <%= submit_tag "Ok", :class => 'btn info' %>
+    <% end %>  
+  </div>
+  <div class="content">
+    <h2> Reports </h2>
+    <div class="clearfix">
+      <%= link_to 'New Report', "#", 'data-controls-modal' => "report-selection", :class => 'btn success', :id => 'select-report' %>
+    </div>  
+    <div id="report-selection" class="modal hide fade" style="display:none">
+      <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3>Report Selection</h3>
+      </div>
+      <div class="modal-body"> 
+        <p>
+          Seleccione un tipo de reporte que desea crear:
+        </p>  
+        <%= form_tag new_reports_path, :method => :get do %>
+            <fieldset>
+              <% ReportType.all.each do |rp| %>
+                <div class="input input-prepend clearfix">  
+                  <div class="add-on icon">
+                    <%= image_tag('layers_16x14.png') %> 
+                  </div>
+                  <label class="span2 prependedLabel"> <%= link_to rp.name, url_for(:controller => 'reports', :action => 'new', :type => rp.name.downcase)%> </label>  
+                </div>
+              <% end %> 
+              <%= submit_tag "Accept", :class => 'btn success' %>
+            </fieldset>  
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <table class="bordered-table zebra-striped">
+      <thead>
+        <th> # </th>
+        <th>Report type</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Status</th>
+        <th>Created at</th>
+        <th>Has Map</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr>
+            <td><%= report.id %> </td>
+            <td><%= report.report_type.name %></td>
+            <td><%= report.general_report.name %></td>
+            <td><%= report.general_report.designation %></td>
+            <td><%= report.status_report.status.name %></td>
+            <td><%= report.created_at.strftime('%d %b %Y') %></td>
+            <td><%= report.location_report.has_map? ? "Yes" : "No" %></td>
+            <td>
+              <%= link_to 'Show', report, :class => 'btn info' %>
+              <%= link_to 'Edit', edit_report_path(report), :class => 'btn' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

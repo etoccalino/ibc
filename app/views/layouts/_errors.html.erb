@@ -1,0 +1,8 @@
+<% if parent.errors.any? %>
+  <div class="alert-message block-message alert" data-alert="alert">
+    <%= link_to "×", '#', :class => 'close' %>
+    <div>
+      <h4>Hey, not so fast! We actually require <span style="color: #b94a48"><%= pluralize(parent.errors.count, "field") %></span> for you to complete:</h4>
+    </div>
+  </div>
+<% end %>

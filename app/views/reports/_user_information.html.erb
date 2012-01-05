@@ -1,0 +1,5 @@
+<% if uf.object.new_record? %>
+  <%= uf.hidden_field :created_user_id, :value => current_user.id %>
+<% else %>  
+  <%= uf.hidden_field :updated_user_id, :value => current_user.id %>
+<% end %>  

@@ -1,0 +1,58 @@
+<div class="header indent3">
+  <h2>Owner Information</h2>
+</div>
+<div>
+  <%= f.fields_for :owner_report do |owr| %>
+    <div class="clearfix">
+      <%= owr.label :owner %> 
+      <div class="input">
+        <%= owr.text_field :owner, :class => 'span8' %>
+        <span class="help-block"> Propietario del objeto inventariado </span>
+      </div>
+    </div>
+    <div class="clearfix">
+      <%= owr.label :address %> 
+      <div class="input">
+        <%= owr.text_field :address, :class => 'span8' %>
+        <%= image_tag('help-icon.png',:class => 'popover-info help-icon', 'data-content' => "probando algo por aca!", 'data-original-title' => "info de la cosa esta")%>
+      </div>
+    </div>
+    <div class="clearfix">
+      <%= owr.label :administrative_subordination %> 
+      <div class="input fixedData">
+        <%= owr.text_field :administrative_subordination, :class => 'span8' %>
+        <%= image_tag('help-icon.png',:class => 'popover-info help-icon', 'data-content' => "probando algo por aca!", 'data-original-title' => "info de la cosa esta")%>
+      </div>
+    </div> 
+    <div class="clearfix">
+      <%= owr.label :responsible %> 
+      <div class="input">
+        <%= owr.text_field :responsible, :class => 'span8' %>
+        <%= image_tag('help-icon.png',:class => 'popover-info help-icon', 'data-content' => "probando algo por aca!", 'data-original-title' => "info de la cosa esta")%>
+      </div>
+    </div>  
+    <div class="clearfix">
+      <%= owr.label :access_restriction %>
+      <div class="input input-prepend clearfix">
+        <div class="add-on">
+          <%= owr.radio_button :access_restriction, true, :rel => 'access' %> 
+        </div>
+        <label class="prependedLabel span1"> Yes </label>
+      </div>
+      <div class="input input-prepend clearfix">  
+        <div class="add-on">
+          <%= owr.radio_button :access_restriction, false, :rel => 'access' %> 
+        </div>
+        <label class="prependedLabel span1"> No </label>  
+      </div>
+      <span class="input help-block"> Es posible verlo siempre o en un horario y dia especial </span>
+    </div>
+    <div class="clearfix">  
+      <%= owr.label :service_hours %>
+      <div class="input">
+        <%= owr.text_field :service_hours, :class => 'span8 disabled', :disable => 'disabled' %>
+        <%= image_tag('help-icon.png',:class => 'popover-info help-icon', 'data-content' => "probando algo por aca!", 'data-original-title' => "info de la cosa esta")%>
+      </div>  
+    </div>  
+  <% end %>
+</div>

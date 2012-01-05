@@ -1,0 +1,37 @@
+<div class="header indent3">
+  <h2>Location Information</h2>
+</div>
+<div>
+  <%= f.fields_for :location_report do |lr| %>
+    <div class="field search clearfix">
+      <%= label_tag :search %>
+      <div class="input">
+        <%= text_field_tag :location_search, nil, :class => 'span12', :type => "search" %>
+        <%= image_tag('help-icon.png',:class => 'popover-info help-icon', 'data-content' => "probando algo por aca!", 'data-original-title' => "info de la cosa esta")%>
+      </div>
+    </div>
+    
+    <div class="clearfix">
+      <%= lr.label :address, "Full Address" %>
+      <div class="input clearfix"><%= lr.text_field :address, :class => 'span12' %></div>
+    </div>
+    <div class="clearfix" style="float:left">
+      <%= lr.label :street %>
+      <div class="input clearfix"><%= lr.text_field :street, :class => 'span5'%></div>
+      <%= lr.label :city %>
+      <div class="input clearfix"><%= lr.text_field :city, :class => 'span5'%></div>
+      <%= lr.label :district, "State" %>  
+      <div class="input clearfix"><%= lr.text_field :district, :class=> 'span5' %></div>
+      
+    </div>
+    <div class="clearfix" style="float:left">
+      <%= lr.label :country %>
+      <div class="input clearfix"><%= lr.text_field :country, :class => 'span5'%></div>
+      <%= lr.label :latitude %>
+      <div class="input clearfix"><%= lr.text_field :latitude, :class => 'span5' %></div>
+      <%= lr.label :longitude %>
+      <div class="input clearfix"><%= lr.text_field :longitude, :class => 'span5' %></div>
+    </div>
+    <%= render :partial => "reports/locations/googlemap" %>
+  <% end %>
+</div> 

@@ -1,0 +1,62 @@
+<div class="header indent1">
+  <h2>Location Information</h2>
+</div>
+<div id="location">
+  <div class="clearfix indent1">
+    <div class="info-label">Full Address : </div>
+    <address>
+      <%= location.address.split(',')[0] %>, <%= location.address.split(',')[1] %> 
+    </address>
+  </div>  
+  <div class="clearfix indent1"> 
+    <div class="info-label">City: </div>
+    <div class="info">
+      <%= location.city %>
+    </div>
+  </div>  
+  <div class="clearfix indent1"> 
+    <div class="info-label">Country: </div>
+    <div class="info">
+      <%= location.country %>
+    </div>
+  </div>  
+</div>
+<% if location.has_map? %>
+  <div id="map" style="width: 100%; height: 350px; border: solid 2px #999;border-radius: 4px"></div>
+<% end %>
+<div class="user_information">
+  <%= render :partial => 'reports/information/user_information', :locals => { :info => location } %>
+</div>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
+<script type="text/javascript">	
+<!--
+  // create map and add controls
+  var mapOptions = {
+    center: new google.maps.LatLng(-19.919068,-43.938575),
+    zoom: defaultZoom,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById('map'),mapOptions);
+  var infowindow = new google.maps.InfoWindow({
+    maxWidth: 200
+  });
+	var mylat = <%= location.latitude %>;
+	var mylng = <%= location.longitude %>;
+	var defaultZoom = 12; // decrease zoom to 13 if there is no selection from user.
+	
+	// set center point of map to be of the Marker or the Default City
+  var centrePoint = new google.maps.LatLng(mylat, mylng);
+  marker = new google.maps.Marker({
+    map:map,
+    draggable:true,
+    animation: google.maps.Animation.DROP,
+    position: centrePoint
+  });
+  var defaultImage = new google.maps.MarkerImage('/images/marker.png');
+	marker.setIcon(defaultImage);
+  map.setCenter(centrePoint);
+  map.setZoom(defaultZoom); 
+  infowindow.setContent('<div><strong><%= location.report.general_report.name %></strong></div>');
+  google.maps.event.addListener(marker, 'click', function() {infowindow.open(map,marker)});
+  
+</script>

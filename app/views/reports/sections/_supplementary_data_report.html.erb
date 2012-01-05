@@ -1,0 +1,14 @@
+<div class="header indent3">
+  <h2>Supplementary Data Information</h2>
+</div>
+<div>
+  <%= f.fields_for :supplementary_data_report do |sdr| %>
+    <div class="clearfix">
+      <%= sdr.label :information %> 
+      <div class="input">
+        <%= sdr.text_area :information, :rows => 15, :cols => 40, :class => 'xxlarge' %>
+        <span class="help-block"> Probando </span>
+      </div>
+    </div>
+  <% end %>
+</div>  

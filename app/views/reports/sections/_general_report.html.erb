@@ -1,0 +1,28 @@
+<div class="header indent3">
+  <h2>General Information</h2>
+</div>
+<div>
+  <%= f.fields_for :general_report do |gr| %>
+    <div class="clearfix">
+      <%= gr.label :name %> 
+      <div class="input">
+        <%= gr.text_field :name, :class => 'span8' %>
+        <span class="help-block"> Probando </span>
+      </div>
+    </div>
+    <div class="clearfix">
+      <%= gr.label :designation %> 
+      <div class="input fixedData">
+        <%= gr.text_field :designation, :class => 'span8' %>
+        <span class="help-block"> Probando </span>
+      </div>
+    </div>  
+    <div class="clearfix">
+      <%= gr.label :motivation %>
+      <div class="input fixedData">
+        <%= gr.text_area  :motivation, :rows => 5, :cols => 40, :class => 'xauto' %>
+        <span class="help-block"> Probando </span>
+      </div>  
+    </div>  
+  <% end %>
+</div>  

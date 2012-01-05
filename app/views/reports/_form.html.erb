@@ -1,0 +1,82 @@
+<script>
+  $(document).ready(function() {
+    //FIXME: Maybe fork scrollSpy to work better with multiple visible anchors
+    $('#sideBarNavigationList').scrollSpy();    
+    $(window).bind('scroll', relocateSideBar);
+  });
+  
+  //FIXME: Proper namespace?
+  function relocateSideBar() {
+    var topScroll = $(window).scrollTop();
+    var upperAnchor = 30;
+    if (topScroll < upperAnchor) {
+      $('.sidebar-right').css('top', (upperAnchor - topScroll) + 'px');
+    } else {
+      $('.sidebar-right').css('top', '0px');
+    }
+  }
+  relocateSideBar();
+  console.log($(window).offset());
+</script>
+<div class="sidebar-right fixed">
+  <div id="sideBarNavigation">
+    <h5>Report</h5>
+    <ul id="sideBarNavigationList" data-scrollspy="scrollspy">
+      <li><%= link_to 'General', '#general'  %></li>
+      <li><%= link_to 'Owner', '#owner'  %></li>
+      <li><%= link_to 'Historical', '#historical'  %></li>
+      <li><%= link_to 'Location', '#location'  %></li>
+      <li><%= link_to 'Status', '#status'  %></li>
+      <li><%= link_to 'Sup. Data', '#supplementary_data'  %></li>
+      <li><%= link_to 'Technical Card', '#technical_card' %></li>
+      <li>
+        <div class="actions">
+          <%= link_to 'Go top', '#form-header'%>
+          <%= link_to 'Finish', '#technical_card' %>
+        </div>
+      </li>  
+    </ul> 
+  </div>   
+</div>
+<div class="content-left">
+  <div class="header" id="form-header">
+    <h1> 
+      <%=  action_name.titleize %> <%= controller_name.singularize.titleize %> : <%= @report.report_type.name %> 
+    </h1>
+  </div>
+  <%= render :partial => '/layouts/errors', :locals => {:parent => @report } %>
+  <%= form_for @report, :html => { :class => '' } do |f| %>
+    <fieldset>
+      <div class="field">
+        <%= f.hidden_field :user_id, :value => 1 %>
+        <%= f.hidden_field :report_type_id, :value => @report.report_type.id %>
+      </div>
+      <section id="general">
+        <%= render :partial => 'reports/sections/general_report', :locals => { :f => f } %>
+      </section>
+      <section id="owner">
+        <%= render :partial => 'reports/sections/owner_report', :locals => { :f => f } %>
+      </section>
+      <section id="historical">
+        <%= render :partial => 'reports/sections/historical_report', :locals => { :f => f } %>
+      </section>
+      <section id="location">
+        <%= render :partial => 'reports/sections/location_report', :locals => { :f => f } %>
+      </section>
+      <section id="status">
+        <%= render :partial => 'reports/sections/status_report', :locals => { :f => f } %>
+      </section>
+      <section id="supplementary_data">
+        <%= render :partial => 'reports/sections/supplementary_data_report', :locals => { :f => f } %>
+      </section>
+      <section id="technical_card">
+        <%= render :partial => 'reports/sections/technical_card_report', :locals => { :f => f } %>
+      </section>
+      <div class="actions">
+        <%= f.submit :class => 'btn primary' %>
+        <%= link_to 'Cancel', @report.new_record? ? reports_path : @report, :class => 'btn' %>
+      </div>
+      <%= render :partial => 'user_information', :locals => { :uf => f } %>
+    </fieldset>  
+  <% end %>
+</div>  

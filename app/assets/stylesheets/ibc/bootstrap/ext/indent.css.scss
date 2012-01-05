@@ -1,0 +1,21 @@
+@mixin indent($indentCount: 1) {
+  padding-left: ($gridGutterWidth * $indentCount);
+}
+
+.indent1     { @include indent(1); }
+.indent2     { @include indent(2); }
+.indent3     { @include indent(3); }
+.indent4     { @include indent(4); }
+.indent5     { @include indent(5); }
+.indent6     { @include indent(6); }
+.indent7     { @include indent(7); }
+.indent8     { @include indent(8); }
+.indent9     { @include indent(9); }
+.indent10    { @include indent(10); }
+.indent11    { @include indent(11); }
+.indent12    { @include indent(12); }
+.indent13    { @include indent(13); }
+.indent14    { @include indent(14); }
+.indent15    { @include indent(15); }
+.indent16    { @include indent(16); }
+

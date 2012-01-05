@@ -1,0 +1,57 @@
+<div class="header indent3 complete">
+  <h2>Technical Card</h2>
+</div>
+<div>
+  <%= f.fields_for :technical_card_report do |tcr| %>
+    <div class="clearfix" style="float:left">
+      <%= tcr.label :survey %> 
+      <div class="input">
+        <%= tcr.date_select :survey, :discard_day => true, :order => [:month, :year],  :default => {:year => Time.now.year } %> 
+        <span class="help-block">dfdsfsdfsd</span>
+      </div>
+      
+    </div>
+    <div style="float:left">
+      <div class="clearfix">
+        <div class="input clearfix label success">Arquiteta e Urbanista – MGTM Ltda.</div>
+        <div class="input">
+          <%= tcr.text_field :survey_user1, :class => 'span5', :placeholder => "Nombre completo"%> 
+          <%= tcr.text_field :survey_user1_crea, :class => 'span3', :placeholder => "crea number"%> / D
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input clearfix label important">Historiadora</div> 
+        <div class="input">
+          <%= tcr.text_field :survey_user2, :class => 'span5', :placeholder => "Nombre completo"%> 
+          <%= tcr.text_field :survey_user2_crea, :class => 'span3', :placeholder => "crea number"%> /D
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="clearfix" style="float:left">
+      <%= tcr.label :elaboration %> 
+      <div class="input">
+        <%= tcr.date_select :elaboration, :discard_day => true, :order => [:month, :year], :default => {:year => Time.now.year }%> 
+        <span class="help-block">dfdsfsdfsd</span>
+      </div>
+     </div> 
+     <div style="float:left">
+       <div class="clearfix">
+        <div class="input clearfix label success">Arquiteta e Urbanista – MGTM Ltda.</div>
+        <div class="input">
+          <%= tcr.text_field :elaboration_user1, :class => 'span5', :placeholder => "Nombre completo"%> 
+          <%= tcr.text_field :elaboration_user1_crea, :class => 'span3', :placeholder => "crea number"%> /D
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input clearfix label important">Historiadora</div> 
+        <div class="input">
+          <%= tcr.text_field :elaboration_user2, :class => 'span5', :placeholder => "Nombre completo"%> 
+          <%= tcr.text_field :elaboration_user2_crea, :class => 'span3', :placeholder => "crea number"%> /D 
+        </div>
+      </div>
+    </div>  
+    <div class="clearfix"></div> 
+    </div>
+  <% end %>
+</div> 
