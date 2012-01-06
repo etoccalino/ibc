@@ -34,13 +34,13 @@
     <div class="clearfix">
       <%= owr.label :access_restriction %>
       <div class="input input-prepend clearfix">
-        <div class="add-on">
+        <div class="add-on <%= @report.new_record? ? nil : (owr.object.access_restriction? ? 'active' : nil ) %>">
           <%= owr.radio_button :access_restriction, true, :rel => 'access' %> 
         </div>
         <label class="prependedLabel span1"> Yes </label>
       </div>
       <div class="input input-prepend clearfix">  
-        <div class="add-on">
+        <div class="add-on <%= @report.new_record? ? nil : (owr.object.access_restriction? ? nil : 'active'  ) %>">
           <%= owr.radio_button :access_restriction, false, :rel => 'access' %> 
         </div>
         <label class="prependedLabel span1"> No </label>  

@@ -2,11 +2,19 @@
   <h2>Supplementary Data Information</h2>
 </div>
 <div>
+  <div class="input i18n">
+    <strong>Choose language: </strong>
+    <span class="span5"><input class="i18n" type="radio" name="supplementary" value="en" > English</span>
+    <span class="span5"><input class="i18n" type="radio"  name="supplementary" value="es" > Español</span>
+    <span class="span5"><input class="i18n" type="radio" name="supplementary" value="pt_br" checked > Português</span>
+    <span><%= link_to 'Clean', "#", :class => 'clean_editor', :id => 'supplementary' %></span>
+  </div>
+  <div class="clear"></div>
   <%= f.fields_for :supplementary_data_report do |sdr| %>
     <div class="clearfix">
       <%= sdr.label :information %> 
       <div class="input">
-        <%= sdr.text_area :information, :rows => 15, :cols => 40, :class => 'xxlarge' %>
+        <%= sdr.text_area :information, :class => 'span12 editor supplementary' %>
         <span class="help-block"> Probando </span>
       </div>
     </div>

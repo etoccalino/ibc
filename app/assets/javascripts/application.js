@@ -61,8 +61,7 @@ $(document).ready(function(){
       autoGrow: true,	
       autoSave: true,	
       plugins: {
-        i18n: true,
-        rmFormat: {rmMsWordMarkup: true}
+        i18n: {lang: 'pt_br'}
       },
       maxHeight: 600,
       rmUnusedControls: true,
@@ -94,17 +93,15 @@ $(document).ready(function(){
         
       }
     });
-    $('input.i18n').change(function() {
-			console.log("vamos a ver que pasa");
+    $('.i18n').change(function() {
 			var lang = $(this).val();
-			console.log("Encontramos el lang: " + lang)
-			$("textarea.editor").wysiwyg("i18n.run", lang);
-			console.log("Ejecutamos el modificador");
+			var area = $(this).attr('name');
+			$('.' + area).wysiwyg("i18n.run", lang);
 			return false;
 		});
 		$('.clean_editor').click(function(){
-		  var text = $('.clean_editor').parent().parent().parent().find('.editor')
-		  text.wysiwyg('clear');
+		  var text = $(this).attr('id');
+		  $('.'+ text).wysiwyg('clear');
 		  return false;
 		})
 });
