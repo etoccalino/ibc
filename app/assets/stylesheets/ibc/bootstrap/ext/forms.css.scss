@@ -29,6 +29,7 @@ fieldset {
  label {
    font-weight: bold;
    color: $grayDark;
+   font-size: 15px;
  }
  input, textarea, .fixedData {
    &.btn {

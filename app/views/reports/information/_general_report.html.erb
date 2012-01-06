@@ -1,6 +1,22 @@
 <div class="header indent1">
   <h2>General Information</h2>
 </div>
-<div class="user_information">
-  <%= render :partial => 'reports/information/user_information', :locals => { :info => general } %>
-</div>
+<div class="clearfix indent1 info-block">
+  <div class="info-label">Name :</div>
+  <div class=" info">
+    <%= general.name %>
+  </div>  
+</div>  
+<div class="clearfix indent1 info-block">  
+  <div class="info-label">Designation :</div>
+  <div class=" info rest_in_place" data-attribute="designation">
+    <%= general.designation %>
+  </div>  
+</div>  
+<div class="clearfix indent1 info-block">  
+  <div class="box-label">Motivation :</div>
+  <div class="box">
+    <%= simple_format general.motivation %>
+  </div>  
+  <div class="clear"></div>
+</div>  

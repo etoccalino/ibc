@@ -1,6 +1,10 @@
 <div class="header indent1">
   <h2>Supplementary Data Information</h2>
 </div>
-<div class="user_information">
-  <%= render :partial => 'reports/information/user_information', :locals => { :info => supplementary_data } %>
-</div>
+<div class="clearfix indent1 info-block"> 
+  <div class="box-label">Extra data : </div>
+  <div class="box">
+    <%= supplementary_data.information%>
+  </div>
+  <div class="clear"></div>
+</div> 

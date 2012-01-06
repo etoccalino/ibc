@@ -1,6 +1,18 @@
 <div class="header indent1">
   <h2>Historical Information</h2>
 </div>
-<div class="user_information">
-  <%= render :partial => 'reports/information/user_information', :locals => { :info => historical } %>
-</div>
+<div class="clearfix indent1 info-block"> 
+  <div class="box-label">Historical : </div>
+  <div class="box">
+    <%= simple_format historical.history %>
+  </div>
+  <div class="clear"></div>
+</div> 
+
+<div class="clearfix indent1 info-block"> 
+  <div class="box-label">Source : </div>
+  <div class="box">
+    <%= simple_format historical.source %>
+  </div>
+  <div class="clear"></div>  
+</div> 

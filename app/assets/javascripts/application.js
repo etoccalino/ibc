@@ -17,7 +17,8 @@
 //= require bootstrap-alerts.js
 //= require bootstrap-modal.js
 //= require bootstrap-scrollspy.js
-//= require_tree .
+
+
 
 $(document).ready(function(){
   $('input,select').keydown(function(event){
@@ -56,4 +57,54 @@ $(document).ready(function(){
     keyboard: true
   });
   
+  $('textarea.editor').wysiwyg({			
+      autoGrow: true,	
+      autoSave: true,	
+      plugins: {
+        i18n: true,
+        rmFormat: {rmMsWordMarkup: true}
+      },
+      maxHeight: 600,
+      rmUnusedControls: true,
+      controls: {
+        bold         : { visible : true, tags:['strong'] },  
+        cut          : { visible : true },
+        copy         : { visible : true },
+        paste        : { visible : true },
+        html         : { visible : true },
+        removeFormat : { visible : true },
+        
+        h1            : { visible : true },
+        h2            : { visible : true },
+        h3            : { visible : true },
+        
+        justifyLeft   : { visible : true },
+        justifyCenter : { visible : true },
+        justifyRight  : { visible : true },
+        justifyFull   : { visible : true },
+       
+        indent        : { visible : true },
+        outdent       : { visible : true },
+        undo          : { visible : true },
+        redo          : { visible : true },
+        
+        insertOrderedList    : { visible : true },
+        insertUnorderedList  : { visible : true },
+        superscript          : { visible : true }
+        
+      }
+    });
+    $('input.i18n').change(function() {
+			console.log("vamos a ver que pasa");
+			var lang = $(this).val();
+			console.log("Encontramos el lang: " + lang)
+			$("textarea.editor").wysiwyg("i18n.run", lang);
+			console.log("Ejecutamos el modificador");
+			return false;
+		});
+		$('.clean_editor').click(function(){
+		  var text = $('.clean_editor').parent().parent().parent().find('.editor')
+		  text.wysiwyg('clear');
+		  return false;
+		})
 });

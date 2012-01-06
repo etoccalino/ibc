@@ -8,3 +8,25 @@
    margin: 10px 0;
    background: #f1f1f1;
  }
+ 
+ul.form{
+  list-style: none;
+  li.card{
+    margin: 5px 0px;
+  }
+  .icon, .text{
+    display: inline;
+    padding: 4px;
+  }
+  a{
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: $grayDark;
+    &:hover {
+      color: #000;
+    }
+  }
+ }
+ 
+ 

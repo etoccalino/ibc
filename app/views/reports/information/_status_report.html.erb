@@ -1,6 +1,13 @@
 <div class="header indent1">
   <h2>Status Information</h2>
 </div>
-<div class="user_information">
-  <%= render :partial => 'reports/information/user_information', :locals => { :info => status } %>
-</div>
+<div class="clearfix indent1 info-block"> 
+  
+  <div class="info-label">
+    <div class="info-icon"> <%= image_tag("#{status.status.name.downcase}_icon.png") %></div>
+    Status : 
+  </div>
+  <div class="info">
+    <%= status.status.name %>
+  </div>
+</div> 

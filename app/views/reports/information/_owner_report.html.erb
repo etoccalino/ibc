@@ -1,6 +1,39 @@
 <div class="header indent1">
   <h2>Owner Information</h2>
 </div>
-<div class="user_information">
-  <%= render :partial => 'reports/information/user_information', :locals => { :info => owner } %>
-</div>
+<div class="clearfix indent1 info-block">
+  <div class="info-label">Owner :</div>
+  <div class=" info">
+    <%= owner.owner %>
+  </div>  
+</div>  
+<div class="clearfix indent1 info-block">  
+  <div class="info-label">Address :</div>
+  <div class=" info">
+    <%= owner.address %>
+  </div>  
+</div>  
+<div class="clearfix indent1 info-block">  
+  <div class="info-label">Subordination :</div>
+  <div class=" info">
+    <%= owner.administrative_subordination %>
+  </div>  
+</div>  
+<div class="clearfix indent1 info-block">  
+  <div class="info-label">Responsible :</div>
+  <div class=" info">
+    <%= owner.responsible %>
+  </div>  
+</div>  
+<div class="clearfix indent1 info-block">  
+  <div class="info-label">A. Restriction :</div>
+  <div class=" info">
+    <%= owner.access_restriction? ? "Yes" : "No" %>
+  </div>  
+</div> 
+<div class="clearfix indent1 info-block">  
+  <div class="info-label">Service hours :</div>
+  <div class=" info">
+    <%= owner.service_hours %>
+  </div>  
+</div>  

@@ -2,18 +2,27 @@
   <h2>Historical Information</h2>
 </div>
 <div>
+  <div id="i18n" class="input">
+    <strong>Choose language: </strong>
+    <span class="span5"><input class="i18n" type="radio" name="i18n" value="en" checked> English</span>
+    <span class="span5"><input class="i18n" type="radio"  name="i18n" value="es" > Español</span>
+    <span class="span5"><input class="i18n" type="radio" name="i18n" value="pt_br" > Português</span>
+    <span><%= link_to 'Clean', "#", :class => 'clean_editor' %></span>
+  </div>
+  <div class="clear"></div>
+
   <%= f.fields_for :historical_report do |hr| %>
     <div class="clearfix">
       <%= hr.label :history %> 
       <div class="input">
-        <%= hr.text_area :history, :rows => 15, :cols => 40, :class => 'xxlarge' %>
-        <span class="help-block"> Probando </span>
+        <%= hr.text_area :history, :class => 'span12 editor' %>
+        <span class="help-block"><strong>Note:</strong> Probando </span>
       </div>
     </div>
     <div class="clearfix">
       <%= hr.label :source %> 
       <div class="input fixedData">
-        <%= hr.text_area :source, :rows => 3, :cols => 40, :class => 'xxlarge' %>
+        <%= hr.text_area :source, :rows => 3, :cols => 40, :class => 'span12' %>
         <span class="help-block"> Probando </span>
       </div>
     </div>  

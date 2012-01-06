@@ -20,19 +20,20 @@
         <p>
           Seleccione un tipo de reporte que desea crear:
         </p>  
-        <%= form_tag new_reports_path, :method => :get do %>
-            <fieldset>
-              <% ReportType.all.each do |rp| %>
-                <div class="input input-prepend clearfix">  
-                  <div class="add-on icon">
-                    <%= image_tag('layers_16x14.png') %> 
-                  </div>
-                  <label class="span2 prependedLabel"> <%= link_to rp.name, url_for(:controller => 'reports', :action => 'new', :type => rp.name.downcase)%> </label>  
+        <ul class="form">
+          <% ReportType.all.each do |rp| %>
+            <li>
+              <div class="clearfix card">  
+                <div class="icon">
+                  <%= image_tag('layers_16x14.png') %> 
                 </div>
-              <% end %> 
-              <%= submit_tag "Accept", :class => 'btn success' %>
-            </fieldset>  
-        <% end %>
+                <div class="span2 text" > <%= link_to rp.name, url_for(:controller => 'reports', :action => 'new', :type => rp.name.downcase)%> 
+                </div>
+              </div>
+              <div class="help-block"> Ficha para inventariar archivos, cartas, documentos, etc</div>
+            </li>  
+          <% end %> 
+        </ul>
       </div>
     </div>
     <br>

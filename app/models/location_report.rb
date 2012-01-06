@@ -1,7 +1,7 @@
 class LocationReport < ActiveRecord::Base
-  acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :check_process => :prevent_geocoding,
-                  :address => "address", :normalized_address => "address",
-                  :msg => "Sorry, not even Google could figure out where that is"
+  #acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :check_process => :prevent_geocoding,
+  #                :address => "address", :normalized_address => "address",
+  #                :msg => "Sorry, not even Google could figure out where that is"
     
   belongs_to :report
   belongs_to :user
